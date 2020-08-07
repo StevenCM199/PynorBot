@@ -16,7 +16,7 @@ client = commands.Bot(command_prefix='.')
 
 @client.event
 async def on_disconnect():
-    txtChnl = client.get_channel(737234405348605996)
+    txtChnl = client.get_channel(741416524274729021)
     await txtChnl.send("adios amiguito")
 
 
@@ -32,7 +32,7 @@ async def on_member_remove(member):
 @client.event #Detecta si alguien ha entrado a un canal
 async def on_voice_state_update(member, before, after):
     now = datetime.datetime.now()
-    channel = client.get_channel(741405851813806101)
+    channel = client.get_channel(741416524274729021)
 
     if before.channel is None and after.channel is not None:
         await channel.send(f'{member} se ha unido al canal {after.channel.name} a las {now.strftime("%H:%M:%S")}')
