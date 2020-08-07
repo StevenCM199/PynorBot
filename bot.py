@@ -1,11 +1,17 @@
 import discord
 import os
 import sys
-import datetime
+from datetime import datetime
+import pytz
 import random
 from discord.ext import commands
 
 client = commands.Bot(command_prefix='.')
+
+tz_CR = pytz.timezone('America/Costa_Rica')
+datetime_CR = datetime.now(tz_CR)
+
+
 #txtChnl = client.get_channel(737234405348605996)
 
 #@client.event
@@ -31,13 +37,12 @@ async def on_member_remove(member):
 
 @client.event #Detecta si alguien ha entrado a un canal
 async def on_voice_state_update(member, before, after):
-    now = datetime.datetime.now()
     channel = client.get_channel(741416524274729021)
 
     if before.channel is None and after.channel is not None:
-        await channel.send(f'{member} se ha unido al canal {after.channel.name} a las {now.strftime("%H:%M:%S")}')
+        await channel.send(f'{member} se ha unido al canal {after.channel.name} a las {datetime_CR.strftime("%H:%M:%S")}')
     if after.channel is None and before.channel is not None:
-        await channel.send(f'{member} ha salido del canal {before.channel.name} a las {now.strftime("%H:%M:%S")}')
+        await channel.send(f'{member} ha salido del canal {before.channel.name} a las {datetime_CR.strftime("%H:%M:%S")}')
 
 
 @client.command()
