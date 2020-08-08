@@ -37,11 +37,16 @@ async def on_voice_state_update(member, before, after):
     datetime_CR = datetime.now(tz_CR)
     channel = client.get_channel(741416524274729021)
 
-    if before.channel and after.channel is not None:
+    # JUGADOR SE UNE AL CANAL
+    if before.voice.voice_channel is None and after.voice.voice_channel is not None:
         await channel.send(f'{member} se ha unido al canal {after.channel.name} a las {datetime_CR.strftime("%H:%M:%S")}')
-    if after.channel is None and before.channel is not None:
+
+    # JUGADOR SE SALE DEL CANAL
+    if after.voice.voice_channel is None and before.voice.voice_channel is not None:
         await channel.send(f'{member} ha salido del canal {before.channel.name} a las {datetime_CR.strftime("%H:%M:%S")}')
-    if before(channel) and after(channel):
+
+    # JUGADOR CAMBIA DE CANAL
+    if before.voice.voice_channel is not None and after.voice.voice_channel is not None:
         await channel.send(f'{member} se ha movido al canal {after.channel.name} a las {datetime_CR.strftime("%H:%M:%S")}')
 
 
