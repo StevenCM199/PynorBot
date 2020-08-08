@@ -41,6 +41,8 @@ async def on_voice_state_update(member, before, after):
         await channel.send(f'{member} se ha unido al canal {after.channel.name} a las {datetime_CR.strftime("%H:%M:%S")}')
     if after.channel is None and before.channel is not None:
         await channel.send(f'{member} ha salido del canal {before.channel.name} a las {datetime_CR.strftime("%H:%M:%S")}')
+    if before.channel is not None and after.channel is not None:
+        await channel.send(f'{member} se ha movido al canal {after.channel.name} a las {datetime_CR.strftime("%H:%M:%S")}')
 
 
 @client.command()
