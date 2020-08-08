@@ -16,10 +16,10 @@ client = commands.Bot(command_prefix='.')
 #    txtChnl = client.get_channel(737234405348605996)
 #    await txtChnl.send("hola amiguito")
 
-@client.event
-async def on_disconnect():
-    txtChnl = client.get_channel(741416524274729021)
-    await txtChnl.send("adios amiguito")
+#@client.event
+#async def on_disconnect():
+#    txtChnl = client.get_channel(741416524274729021)
+#    await txtChnl.send("adios amiguito")
 
 
 @client.event
