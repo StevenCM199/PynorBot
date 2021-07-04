@@ -10,9 +10,10 @@ from discord.ext import commands
 client = commands.Bot(command_prefix='.')
 #txtChnl = client.get_channel(737234405348605996)
 
-#@client.event
-#async def on_ready():
-   # global logChannel
+@client.event
+async def on_ready():
+   global logChannel
+   logChannel = "paynorbot"
 #    txtChnl = client.get_channel(737234405348605996)
 #    await txtChnl.send("hola amiguito")
 
