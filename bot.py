@@ -78,5 +78,5 @@ async def listaconectados(ctx):
             await ctx.send(conectados[i])
 
 
-schedule.every().day.at("03:30:00").do(clearLists)
+#schedule.every().day.at("03:30:00").do(clearLists)
 client.run('NzM3MjQ0MTQ0MDI3Njk3MTg1.Xx6iHQ.dNgQ-ivU51IMgmqljDTqZrU5J_Y')
