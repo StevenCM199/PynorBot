@@ -5,8 +5,6 @@ import schedule as schedule
 from discord.ext import commands
 import time
 
-from discord.ext.commands import bot
-
 client = commands.Bot(command_prefix='.')
 conectados = []  # lista de conectados
 uptime = datetime
@@ -63,7 +61,7 @@ async def on_voice_state_update(member, before, after):
                 seconds = None
 
 
-@client.command(pass_context=True)
+@client.command()
 async def clearLists(ctx):
     conectados.clear()
     await ctx.send('=========Lista vaciada=========')
