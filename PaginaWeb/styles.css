@@ -13,12 +13,16 @@
   }
 
 body {
-    background-color: rgb(59, 52, 58);
+    background-color: rgb(255, 255, 255);
 }
 
 .datosez{
     padding: 3rem;
     font-family: "Poppins", sans-serif;
-    color: white;
+    color: rgb(0, 0, 0);
+}
+
+.line-chart-container{
+    padding: 10rem;
 }
 
