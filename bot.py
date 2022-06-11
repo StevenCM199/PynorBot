@@ -2,6 +2,7 @@ import discord
 from datetime import datetime
 import pytz
 import schedule as schedule
+import xlsxwriter
 from discord.ext import commands
 import time
 

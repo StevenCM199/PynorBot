@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,300&display=swap');
+
+
+.header {
+    padding: 30px;
+    text-align: center;
+    background-image: url('./imagenes/neon.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+  }
+
+body {
+    background-color: rgb(59, 52, 58);
+}
+
+.datosez{
+    padding: 3rem;
+    font-family: "Poppins", sans-serif;
+    color: white;
+}
+
