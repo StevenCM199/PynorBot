@@ -136,4 +136,4 @@ async def listaconectados(ctx):
 
 
 # schedule.every().day.at("03:30:00").do(clearLists)
-client.run('NzM3MjQ0MTQ0MDI3Njk3MTg1.GqOySh.6gCZf5sULGWnGtonXgBg5godJi8mHNVXWE91Og')
+client.run('')
