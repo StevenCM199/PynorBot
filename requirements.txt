@@ -4,3 +4,4 @@ async-timeout==3.0.1
 dnspython==1.16.0
 pytz~=2020.1
 schedule~=1.1.0
+psycopg2~=2.9.3
