@@ -1,7 +1,5 @@
-
 //URL DEL API
 const api_url = ('http://localhost:8000/api/v1/ezGet');
-
 
 const ctx = document.getElementById('tablaEz');
 
@@ -19,8 +17,9 @@ function appendData(data) {
     var datosEl = document.getElementById("datos");
         for (var i = 0; i < data.length; i++) {
             var div = document.createElement("div");
-            div.innerHTML = 'DiscordID: ' + data[i].discordid + ' Horas: ' + data[i].hours
-            + ' Ultima conexion: ' + data[i].lasttimeconnected;
+
+            div.innerHTML = 'DiscordID: ' + data[i].discordid + ' Horas: ' + data[i].hours.toFixed(2)
+            + ' Ultima conexion: ' + moment(data[i].lasttimeconnected).format('MM/DD/YY');
             nombres.push(data[i].discordid)
             horas.push(data[i].hours)
             datosEl.appendChild(div);
