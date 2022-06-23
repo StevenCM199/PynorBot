@@ -6,7 +6,10 @@ from config import config
 from discord.ext import commands
 import time
 
-client = commands.Bot(command_prefix='.')
+intents = discord.Intents.default() # or .all() if you ticked all, that is easier
+intents.members = True # If you ticked the SERVER MEMBERS INTENT
+
+client = commands.Bot(command_prefix='.', intents=intents)
 conectados = []  # lista de conectados
 uptime = datetime
 tz_CR = pytz.timezone('America/Costa_Rica')
