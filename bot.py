@@ -5,6 +5,7 @@ import psycopg2
 from config import config
 from discord.ext import commands
 import time
+import config
 
 intents = discord.Intents.default() # or .all() if you ticked all, that is easier
 intents.members = True # If you ticked the SERVER MEMBERS INTENT
@@ -78,7 +79,7 @@ async def insertarConectados(member, date):
 @client.event
 async def on_ready():
     global logChannel
-    logChannel = "paynorbot"  # canal de logs
+    logChannel = "bot-neko"  # canal de logs
 
 
 @client.command()
@@ -109,7 +110,7 @@ async def on_voice_state_update(member, before, after):
                     if conectados[i][0] == member.name:
                         uptime = datetime_CR - conectados[i][1]
                         seconds = uptime.total_seconds()
-                        insert_ez(member.name, (seconds / 3600), datetime_CR)
+                        ###insert_ez(member.name, (seconds / 3600), datetime_CR)
                         del conectados[i]
                 try:
                     await channel.send(
@@ -136,4 +137,4 @@ async def listaconectados(ctx):
 
 
 # schedule.every().day.at("03:30:00").do(clearLists)
-client.run('')
+client.run(config.DISCORD_API_SECRET)

@@ -1,7 +1,13 @@
 #!/usr/bin/python
 from configparser import ConfigParser
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
+DISCORD_API_SECRET = os.getenv("DISCORD_API_TOKEN")
+
+###DATABASE CONNECTION
 def config(filename='database.ini', section='postgresql'):
     # create a parser
     parser = ConfigParser()
