@@ -79,7 +79,7 @@ async def insertarConectados(member, date):
 @client.event
 async def on_ready():
     global logChannel
-    logChannel = "bot-neko"  # canal de logs
+    logChannel = "paynor-bot"  # canal de logs
 
 
 @client.command()
