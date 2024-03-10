@@ -35,12 +35,12 @@ def manage_db(discordId, lasttimeconnected):
 
     selectQuery = """SELECT * FROM times """
     
-    insertQuery = """INSERT INTO times("discordid", lasttimeconnected, connected)
-             VALUES(%d, %s, true) 
+    insertQuery = """INSERT INTO times("discordid", lasttimeconnected, connected, seconds)
+             VALUES(%s, %s, true, 0) 
              """
     
     updateQuery = """UPDATE times
-             SET lasttimeconnected = %s, connected = True 
+             SET lasttimeconnected = %s, connected = True
              WHERE "discordid" = %s"""
     
     disconnectQuery = """UPDATE times
@@ -49,8 +49,6 @@ def manage_db(discordId, lasttimeconnected):
              
     conn = None
     try:
-        #params = dbconnect()
-        #conn = psycopg2.connect(**params)
         conn = psycopg2.connect(DB_Port)
         cur = conn.cursor()
         cur.execute(selectQuery)
@@ -58,16 +56,17 @@ def manage_db(discordId, lasttimeconnected):
 
         for i in range(len(tablecur) + 1):
             if i == len(tablecur):
-
                 cur.execute(insertQuery, (discordId, lasttimeconnected))
                 break
-            elif discordId in tablecur[i] and tablecur[i][3] == True:
+            if discordId in tablecur[i] and tablecur[i][3] == True:
                 time_connected = (datetime.now(tz_CR)-tablecur[i][2]).total_seconds()               
                 cur.execute(disconnectQuery, (lasttimeconnected, time_connected, discordId))
                 break    
             elif discordId in tablecur[i] and tablecur[i][3] == False:
                 cur.execute(updateQuery, (lasttimeconnected, discordId))
                 break
+            
+
 
         conn.commit()
         cur.close()
