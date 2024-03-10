@@ -5,10 +5,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DISCORD_API_SECRET = os.getenv("DISCORD_API_TOKEN")
+DISCORD_API_SECRET = os.getenv("DISCORD_TESTING_TOKEN")
 
 ###DATABASE CONNECTION
-def config(filename='database.ini', section='postgresql'):
+def dbconnect(filename='database.ini', section='postgresql'):
     # create a parser
     parser = ConfigParser()
     # read config file
