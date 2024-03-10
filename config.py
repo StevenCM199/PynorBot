@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DISCORD_API_SECRET = os.getenv("DISCORD_TESTING_TOKEN")
+DISCORD_API_SECRET = os.getenv("DISCORD_API_TOKEN")
 
 ###DATABASE CONNECTION
 def dbconnect(filename='database.ini', section='postgresql'):

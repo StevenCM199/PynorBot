@@ -77,7 +77,7 @@ def manage_db(discordId, lasttimeconnected):
 @client.event
 async def on_ready():
     global logChannel
-    logChannel = "paynor"
+    logChannel = "paynor-bot"
 
 
 @client.command()
