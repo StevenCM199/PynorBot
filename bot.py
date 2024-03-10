@@ -5,8 +5,13 @@ import pytz
 import psycopg2
 from discord.ext import commands
 import time
-import config
-from config import dbconnect
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+DISCORD_API_SECRET = os.getenv("DISCORD_API_TOKEN")
+DB_Port = os.getenv("dbconnection")
 
 intents = discord.Intents.default()
 intents.members = True 
@@ -44,8 +49,9 @@ def manage_db(discordId, lasttimeconnected):
              
     conn = None
     try:
-        params = dbconnect()
-        conn = psycopg2.connect(**params)
+        #params = dbconnect()
+        #conn = psycopg2.connect(**params)
+        conn = psycopg2.connect(DB_Port)
         cur = conn.cursor()
         cur.execute(selectQuery)
         tablecur = cur.fetchall()
@@ -103,4 +109,4 @@ async def on_voice_state_update(member, before, after):
                     f' :x: {member.name} salió del canal {before.channel.name} a las {datetime_CR.strftime("%I:%M %p")}, tiempo conectado: {convert(time_connected)}')
 
 
-client.run(config.DISCORD_API_SECRET)
+client.run(DISCORD_API_SECRET)
